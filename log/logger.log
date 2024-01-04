@@ -1,0 +1,6 @@
+[main] DEBUG o.l.singleton.SingletonDriverClass - end of application
+[main] INFO  ${IJ_BASE_PACKAGE}.singleton.FileHandler - Reading from file: test.properties
+[main] DEBUG o.l.singleton.SingletonDriverClass - end of application
+[main] TRACE ${IJ_BASE_PACKAGE}.singleton.FileHandler - Entered readConfigFile
+[main] INFO  ${IJ_BASE_PACKAGE}.singleton.FileHandler - Reading from file: test.properties
+[main] DEBUG o.l.singleton.SingletonDriverClass - end of application
