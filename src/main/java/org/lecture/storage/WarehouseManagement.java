@@ -12,6 +12,7 @@ import org.lecture.product.Lebensmittel;
 import org.lecture.product.Produkt;
 
 import java.util.*;
+
 @Getter
 @Setter
 public class WarehouseManagement implements LagerOperation {
@@ -33,17 +34,17 @@ public class WarehouseManagement implements LagerOperation {
     }
     public void initializeDefaultProducts() {
         for (ElektronikProdukt eProdukt : ElektronikProdukt.values()) {
-            Elektronik elektronik = new Elektronik(eProdukt.getName(), 500);
+            Elektronik elektronik = new Elektronik(eProdukt.getName(), 1);
             bestand.put(elektronik.getName(), elektronik);
         }
 
         for (KleidungProdukt kProdukt : KleidungProdukt.values()) {
-            Kleidung kleidung = new Kleidung(kProdukt.getName(), 500); // Assuming quantity 5 for example
+            Kleidung kleidung = new Kleidung(kProdukt.getName(), 1); // Assuming quantity 5 for example
             bestand.put(kleidung.getName(), kleidung);
         }
 
         for (LebensmittelProdukt lProdukt : LebensmittelProdukt.values()) {
-            Lebensmittel lebensmittel = new Lebensmittel(lProdukt.getName(), 500); // Assuming quantity 30 for example
+            Lebensmittel lebensmittel = new Lebensmittel(lProdukt.getName(), 1); // Assuming quantity 30 for example
             bestand.put(lebensmittel.getName(), lebensmittel);
         }
     }
@@ -76,7 +77,6 @@ public class WarehouseManagement implements LagerOperation {
         String randomKey = keys.get(new Random().nextInt(keys.size()));
         return bestand.get(randomKey);
     }
-
 
 
     @Override
