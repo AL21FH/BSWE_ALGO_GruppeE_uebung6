@@ -18,7 +18,7 @@ public class StorageSystem {
 
     private void initializeProducts() {
         Produkt laptop = new Elektronik("Laptop", 50);
-        Produkt jeans = new Kleidung("Jeans", 30);
+        Produkt jeans = new Kleidung("Jeans", 5);
         Produkt apfel = new Lebensmittel("Apfel", 30);
 
     }
