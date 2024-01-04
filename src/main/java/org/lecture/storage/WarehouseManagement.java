@@ -25,13 +25,13 @@ public class WarehouseManagement implements LagerOperation {
 
     }
 
-    public synchronized void printInventory() {
+    /*public synchronized void printInventory() {
         System.out.println("Current Inventory State:");
         for (Map.Entry<String, Produkt> entry : bestand.entrySet()) {
             Produkt produkt = entry.getValue();
             System.out.println("Produkt "+ produkt.getProduktKlasse() + " " + produkt.getName() + " hat einen Bestand von " + produkt.getBestand());
         }
-    }
+    }*/
     public void initializeDefaultProducts() {
         for (ElektronikProdukt eProdukt : ElektronikProdukt.values()) {
             Elektronik elektronik = new Elektronik(eProdukt.getName(), 1);
@@ -49,7 +49,7 @@ public class WarehouseManagement implements LagerOperation {
         }
     }
 
-    public Map.Entry<String, Produkt> getRandomProductEntry() {
+    public synchronized Map.Entry<String, Produkt> getRandomProductEntry() {
         if (bestand.isEmpty()) {
             //initializeDefaultProducts();
         }
@@ -82,10 +82,9 @@ public class WarehouseManagement implements LagerOperation {
     @Override
     public synchronized void aktualisiereBestand(Produkt produkt, int menge) {
         int aktuellerBestand = produkt.getBestand();
-
         if (aktuellerBestand + menge < 0) {
-            System.out.println("Verkauf abgelehnt: Nicht genug Bestand von " + produkt.getName());
-            return; // Verhindert, dass der Bestand negativ wird
+            //System.out.println("Verkauf abgelehnt: Nicht genug Bestand von " + produkt.getName());
+            return;
         }
 
         produkt.setBestand(aktuellerBestand + menge);
@@ -95,13 +94,5 @@ public class WarehouseManagement implements LagerOperation {
             System.out.println(alarmEntry);
             history.addEntry(alarmEntry);
         }
-
-        String stockChangeEntry = "Bestandsänderung: Produkt " + produkt.getName() + ", Menge: " + menge;
-        System.out.println(stockChangeEntry);
-        bestand.put(produkt.getName(), produkt);
-        history.addEntry(stockChangeEntry);
     }
-
-
-
 }

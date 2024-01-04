@@ -5,6 +5,7 @@ import org.lecture.interfaces.LagerOperation;
 import org.lecture.product.Produkt;
 import org.lecture.storage.WarehouseManagement;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Random;
 
@@ -25,7 +26,12 @@ public class DeliveryThread extends Thread {
                     Produkt produkt = productEntry.getValue();
                     int menge = random.nextInt(50) + 1;
                     lagerOperation.aktualisiereBestand(produkt, menge);
-                    ((WarehouseManagement) lagerOperation).printInventory();
+                    String message = LocalDateTime.now() + " Produkt " + produkt.getProduktKlasse() + " "
+                            + produkt.getName() + " hat einen Bestand von " + produkt.getBestand();
+                    ((WarehouseManagement) lagerOperation).getHistory().addEntry(message);
+                    System.out.println(message);
+                    System.out.println("Lieferung: " + menge +
+                            " Einheiten von Produkt " + produkt.getName() + " hinzugefügt");
                 }
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
