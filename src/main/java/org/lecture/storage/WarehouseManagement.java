@@ -1,6 +1,9 @@
 package org.lecture.storage;
 
 import org.lecture.interfaces.LagerOpration;
+import org.lecture.product.Elektronik;
+import org.lecture.product.Kleidung;
+import org.lecture.product.Lebensmittel;
 import org.lecture.product.Produkt;
 
 import java.util.HashMap;
@@ -9,6 +12,7 @@ import java.util.Map;
 public class WarehouseManagement implements LagerOpration {
     private Map<String, Produkt> bestand;
     private StorageHistory history;
+
 
 
     public WarehouseManagement(StorageHistory history) {
@@ -32,4 +36,6 @@ public class WarehouseManagement implements LagerOpration {
         bestand.put(produkt.getName(), produkt);
         history.addEntry("Bestandsänderung: Produkt " + produkt.getName() + ", Menge: " + menge);
     }
+
+
 }

@@ -10,6 +10,11 @@ public class Produkt {
     private ProduktKlasse produktKlasse;
     private int bestand;
 
-    // Konstruktor, Getter und Setter
+    public Produkt(String name, ProduktKlasse produktKlasse, int bestand) {
+        this.name = name;
+        this.produktKlasse = produktKlasse;
+        this.bestand = bestand;
+    }
+
 }
 
