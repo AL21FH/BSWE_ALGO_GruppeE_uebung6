@@ -1,4 +1,4 @@
-package org.lecture.product;
+package org.lecture.enums;
 
 public enum ProduktKlasse {
     ELEKTRONIK, KLEIDUNG, LEBENSMITTEL

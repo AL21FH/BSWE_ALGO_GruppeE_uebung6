@@ -2,6 +2,7 @@ package org.lecture.product;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.lecture.enums.ProduktKlasse;
 
 @Getter
 @Setter
