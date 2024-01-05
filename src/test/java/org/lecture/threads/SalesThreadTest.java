@@ -1,12 +1,8 @@
 package org.lecture.threads;
 
 import org.lecture.interfaces.LagerOperation;
-import org.lecture.product.Produkt;
 import org.lecture.storage.WarehouseManagement;
 
-import java.time.LocalDateTime;
-import java.util.Map;
-import java.util.Random;
 
 public class SalesThreadTest {
 
