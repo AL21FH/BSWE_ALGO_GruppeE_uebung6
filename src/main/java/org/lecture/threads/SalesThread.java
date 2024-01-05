@@ -23,7 +23,8 @@ public class SalesThread extends Thread {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        while (true) {
+
+        while (!Thread.currentThread().isInterrupted()) {
             try {
                 Map.Entry<String, Produkt> productEntry = ((WarehouseManagement) lagerOperation).getRandomProductEntry();
                 if (productEntry != null) {
@@ -45,7 +46,7 @@ public class SalesThread extends Thread {
                 }
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                Thread.currentThread().interrupt(); // Restore interrupted status
             }
         }
     }
