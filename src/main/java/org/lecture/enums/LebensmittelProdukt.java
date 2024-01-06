@@ -2,6 +2,9 @@ package org.lecture.enums;
 
 import java.util.Random;
 
+/**
+ * Enumeration representing food products.
+ */
 public enum LebensmittelProdukt {
 
     GRANATAPFEL ("Granatapfel"),

@@ -4,6 +4,9 @@ import lombok.Getter;
 
 import java.util.Random;
 
+/**
+ * Enumeration representing electronic products.
+ */
 public enum ElektronikProdukt {
     KOPFHOERER("Kopfhörer"),
     USBMAUS("USB-Maus"),

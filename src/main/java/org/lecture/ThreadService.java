@@ -7,6 +7,11 @@ import org.lecture.storage.WarehouseManagement;
 import org.lecture.threads.DeliveryThread;
 import org.lecture.threads.SalesThread;
 
+/**
+ * The ThreadService class is responsible for managing and coordinating threads in the warehouse simulation.
+ * It initializes the necessary components, such as the warehouse management system, menu, and threads for
+ * product delivery and sales. It provides a user interface to interact with the simulation.
+ */
 public class ThreadService {
 
     private final WarehouseManagement warehouseManagement = new WarehouseManagement();

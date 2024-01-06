@@ -8,6 +8,11 @@ import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Random;
 
+/**
+ * The SalesThread class represents a thread responsible for simulating product sales.
+ * It continuously selects random products and attempts to perform sales transactions,
+ * updating the inventory through the specified LagerOperation.
+ */
 public class SalesThread extends Thread {
     private final LagerOperation lagerOperation;
     private final Random random = new Random();

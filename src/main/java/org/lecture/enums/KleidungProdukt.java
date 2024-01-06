@@ -2,6 +2,9 @@ package org.lecture.enums;
 
 import java.util.Random;
 
+/**
+ * Enumeration representing clothing products.
+ */
 public enum KleidungProdukt {
 
     BALENCIAGABAUCHTASCHE ("Balenciaga Bauchtasche"),
