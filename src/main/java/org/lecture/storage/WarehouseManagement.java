@@ -13,6 +13,9 @@ import org.lecture.product.Produkt;
 
 import java.util.*;
 
+/**
+ * Manages the warehouse inventory and provides operations for updating stock.
+ */
 @Getter
 @Setter
 public class WarehouseManagement implements LagerOperation {
@@ -59,7 +62,7 @@ public class WarehouseManagement implements LagerOperation {
         if (!productList.isEmpty()) {
             Map.Entry<String, Produkt> randomProductEntry = productList.get(new Random().nextInt(productList.size()));
 
-            // Hier haben Sie jetzt das Entry-Objekt, das den Produktname und das Produktobjekt enthält
+            // Entry-Objekt, enthält den Produktname und das Produktobjekt
             return randomProductEntry;
         }
 
