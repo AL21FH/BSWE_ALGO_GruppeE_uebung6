@@ -19,7 +19,7 @@ public class DeliveryThread extends Thread {
 
     @Override
     public void run() {
-        while (true) {
+        while (!Thread.currentThread().isInterrupted()) {
             try {
                 Map.Entry<String, Produkt> productEntry = ((WarehouseManagement) lagerOperation).getRandomProductEntry();
                 if (productEntry != null) {
@@ -35,7 +35,8 @@ public class DeliveryThread extends Thread {
                 }
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                // Restore interrupted status
+                Thread.currentThread().interrupt();
             }
         }
     }
