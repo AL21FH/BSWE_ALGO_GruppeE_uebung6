@@ -1,11 +1,12 @@
 package org.lecture.threads;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import org.lecture.helpers.ConsoleColor;
 import org.lecture.interfaces.LagerOperation;
-import org.lecture.storage.WarehouseManagement;
 import org.lecture.product.Produkt;
+import org.lecture.storage.WarehouseManagement;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.Random;
 
@@ -43,7 +44,7 @@ public class SalesThread extends Thread {
                 Map.Entry<String, Produkt> productEntry = ((WarehouseManagement) lagerOperation).getRandomProductEntry();
                 if (productEntry != null) {
                     Produkt produkt = productEntry.getValue();
-                    int menge = -1 * random.nextInt(20) + 1;
+                    int menge = -1 * random.nextInt(40) + 1;
 
                     String currentTime = LocalDateTime.now().format(formatter);
                     String message = currentTime + " ▪ Verkauf: " + Math.abs(menge) + " Einheiten von Produkt " + produkt.getProduktKlasse() + "-" + produkt.getName() + " abgezogen";

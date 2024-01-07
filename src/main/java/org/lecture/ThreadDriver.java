@@ -2,7 +2,7 @@ package org.lecture;
 
 /**
  * The ThreadDriver class contains the main method to run the ThreadService for managing warehouse threads.
- *It creates an instance of the ThreadService class and invokes the run method to start the thread simulation.
+ * It creates an instance of the ThreadService class and invokes the run method to start the thread simulation.
  *
  * @author Unger Daniel, Leicht Andreas, Alnahhas Khaled
  * @version 1.0

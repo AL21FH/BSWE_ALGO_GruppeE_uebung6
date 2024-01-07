@@ -8,17 +8,14 @@ import java.util.Random;
  * This enumeration defines various clothing products along with methods
  * to retrieve random names from the available options.
  *
- *@author Unger Daniel, Leicht Andreas, Alnahhas Khaled
- *@version 1.0
+ * @author Unger Daniel, Leicht Andreas, Alnahhas Khaled
+ * @version 1.0
  */
 public enum KleidungProdukt {
 
-    BALENCIAGABAUCHTASCHE ("Balenciaga Bauchtasche"),
-    GUCCICAP ("Gucci Cap"),
-    NIKETRAININGSANZUG ("Nike Trainingsanzug"),
-    ADILETTEN ("Adiletten");
+    BALENCIAGABAUCHTASCHE("Balenciaga Bauchtasche"), GUCCICAP("Gucci Cap"), NIKETRAININGSANZUG("Nike Trainingsanzug"), ADILETTEN("Adiletten");
 
-    private String name;
+    private final String name;
 
     KleidungProdukt(String name) {
         this.name = name;
@@ -32,6 +29,7 @@ public enum KleidungProdukt {
         KleidungProdukt[] values = KleidungProdukt.values();
         return values[new Random().nextInt(values.length)].name;
     }
+
     /**
      * Returns the name of the clothing product.
      */

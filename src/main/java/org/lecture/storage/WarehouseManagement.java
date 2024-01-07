@@ -38,7 +38,6 @@ public class WarehouseManagement implements LagerOperation {
     }
 
 
-
     /**
      * Initializes the warehouse with default products.
      * For each category (electronic, clothing, and food), one product is added to the inventory.
@@ -65,7 +64,7 @@ public class WarehouseManagement implements LagerOperation {
      * Retrieves a random product entry from the inventory.
      *
      * @return A random product entry as a Map.Entry (name, product).
-     *         Returns null if the inventory is empty.
+     * Returns null if the inventory is empty.
      */
     public synchronized Map.Entry<String, Produkt> getRandomProductEntry() {
         if (bestand.isEmpty()) {
@@ -123,13 +122,20 @@ public class WarehouseManagement implements LagerOperation {
 
         // Check for low stock and add an alarm entry if necessary
         if (produkt.getBestand() < 10) {
-            String alarmEntry = "▪ Alarm: Bestand für Produkt " + produkt.getProduktKlasse() + "-" + produkt.getName() + " unter Schwellenwert! (Bestand: " + produkt.getBestand() + ")";
+            String alarmEntry = ConsoleColor.ANSI_RED + "▪ Alarm: " + ConsoleColor.ANSI_RESET + ConsoleColor.ANSI_YELLOW + "Bestand für Produkt " + produkt.getProduktKlasse() + "-" + produkt.getName() + " unter Schwellenwert! (Bestand: " + produkt.getBestand() + ")" + ConsoleColor.ANSI_RESET;
             history.addEntry(alarmEntry);
         }
     }
 
+    /**
+     * Validates whether a sale is possible based on the current stock.
+     *
+     * @param produkt The product for which the sale is being validated.
+     * @param menge   The quantity of the product for the sale.
+     * @return True if the sale is valid, false otherwise. A sale is considered valid if the stock after the sale is non-negative.
+     */
     public synchronized boolean validateSale(Produkt produkt, int menge) {
         return produkt.getBestand() + menge >= 0;
     }
-
 }
+

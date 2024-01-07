@@ -20,7 +20,6 @@ public class StorageHistory {
     private List<String> history = new ArrayList<>();
 
 
-
     /**
      * Adds a new entry to the storage history.
      */
@@ -28,6 +27,12 @@ public class StorageHistory {
         history.add(entry);
     }
 
+    /**
+     * Prints the storage history in a formatted manner.
+     * This method formats each entry in the storage history for better readability.
+     * If an entry contains a specific pattern (" hat einen aktuellen Bestand von "),
+     * it splits the entry and formats it before printing. Otherwise, it prints the entry as is.
+     */
     public void printFormattedHistory() {
         if (history.isEmpty()) {
             System.out.println("Keine Einträge vorhanden");
@@ -43,4 +48,5 @@ public class StorageHistory {
             }
         }
     }
+
 }

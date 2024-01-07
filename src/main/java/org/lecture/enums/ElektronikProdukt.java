@@ -9,16 +9,14 @@ import java.util.Random;
  * This enumeration defines various electronic products along with methods
  * to retrieve random names from the available options.
  *
- *@author Unger Daniel, Leicht Andreas, Alnahhas Khaled
- *@version 1.0
+ * @author Unger Daniel, Leicht Andreas, Alnahhas Khaled
+ * @version 1.0
  */
 @Getter
 public enum ElektronikProdukt {
-    KOPFHOERER("Kopfhörer"),
-    USBMAUS("USB-Maus"),
-    LAPTOP("Laptop");
+    KOPFHOERER("Kopfhörer"), USBMAUS("USB-Maus"), LAPTOP("Laptop");
 
-    private String name;
+    private final String name;
 
     ElektronikProdukt(String name) {
         this.name = name;

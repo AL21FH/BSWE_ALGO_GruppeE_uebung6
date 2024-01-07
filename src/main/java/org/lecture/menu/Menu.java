@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * The Menu class provides a simple text-based menu for managing storage.
- *
+ * <p>
  * The menu includes options for simulating delivery and sales, displaying storage history, and exiting the program.
  *
  * @author Unger Daniel, Leicht Andreas, Alnahhas Khaled
@@ -17,7 +17,7 @@ public class Menu {
      *
      * @return The user's choice as an integer.
      */
-    public int printMenu(){
+    public int printMenu() {
         String menu = """
                 🧮🧮🧮🧮🧮 Storage Managing 🧮🧮🧮🧮🧮
                 🧮                                   🧮
@@ -37,15 +37,16 @@ public class Menu {
         int choiceService = chooseOption();
         return choiceService;
     }
+
     /**
      * Captures the user's choice from the console input.
      *
      * @return The user's choice as an integer.
      */
-    private int chooseOption(){
+    private int chooseOption() {
         Scanner scanner = new Scanner(System.in);
         int choice = 0;
-        if(scanner.hasNextInt()) {
+        if (scanner.hasNextInt()) {
             choice = scanner.nextInt();
         } else {
             System.err.println("Invalid input! Please enter a number!");

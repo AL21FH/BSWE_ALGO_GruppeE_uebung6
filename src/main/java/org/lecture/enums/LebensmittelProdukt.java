@@ -7,17 +7,14 @@ import java.util.Random;
  * This enumeration defines various food products along with methods
  * to retrieve random names from the available options.
  *
- *@author Unger Daniel, Leicht Andreas, Alnahhas Khaled
- *@version 1.0
+ * @author Unger Daniel, Leicht Andreas, Alnahhas Khaled
+ * @version 1.0
  */
 public enum LebensmittelProdukt {
 
-    GRANATAPFEL ("Granatapfel"),
-    AUBERGINENWALNUSSBROT ("Auberginenwalnussbrot"),
-    BARISTAMANDELMILCH ("Baristamandelmilch"),
-    NICARAGUAKAFFEE ("Nicaraguakaffee");
+    GRANATAPFEL("Granatapfel"), AUBERGINENWALNUSSBROT("Auberginenwalnussbrot"), BARISTAMANDELMILCH("Baristamandelmilch"), NICARAGUAKAFFEE("Nicaraguakaffee");
 
-    private String name;
+    private final String name;
 
     LebensmittelProdukt(String name) {
         this.name = name;
