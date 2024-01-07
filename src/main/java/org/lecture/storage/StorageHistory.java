@@ -19,10 +19,28 @@ public class StorageHistory {
      */
     private List<String> history = new ArrayList<>();
 
+
+
     /**
      * Adds a new entry to the storage history.
      */
     public void addEntry(String entry) {
         history.add(entry);
+    }
+
+    public void printFormattedHistory() {
+        if (history.isEmpty()) {
+            System.out.println("Keine Einträge vorhanden");
+            return;
+        }
+
+        for (String entry : history) {
+            String[] parts = entry.split(" hat einen aktuellen Bestand von ");
+            if (parts.length == 2) {
+                System.out.println(parts[0] + " ▪ " + parts[1]);
+            } else {
+                System.out.println(entry);
+            }
+        }
     }
 }

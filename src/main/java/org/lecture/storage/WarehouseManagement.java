@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.lecture.enums.ElektronikProdukt;
 import org.lecture.enums.KleidungProdukt;
 import org.lecture.enums.LebensmittelProdukt;
+import org.lecture.helpers.ConsoleColor;
 import org.lecture.interfaces.LagerOperation;
 import org.lecture.product.Elektronik;
 import org.lecture.product.Kleidung;
@@ -36,13 +37,7 @@ public class WarehouseManagement implements LagerOperation {
 
     }
 
-    /*public synchronized void printInventory() {
-        System.out.println("Current Inventory State:");
-        for (Map.Entry<String, Produkt> entry : bestand.entrySet()) {
-            Produkt produkt = entry.getValue();
-            System.out.println("Produkt "+ produkt.getProduktKlasse() + " " + produkt.getName() + " hat einen Bestand von " + produkt.getBestand());
-        }
-    }*/
+
 
     /**
      * Initializes the warehouse with default products.
@@ -116,16 +111,25 @@ public class WarehouseManagement implements LagerOperation {
     public synchronized void aktualisiereBestand(Produkt produkt, int menge) {
         int aktuellerBestand = produkt.getBestand();
         if (aktuellerBestand + menge < 0) {
-            //System.out.println("Verkauf abgelehnt: Nicht genug Bestand von " + produkt.getName());
-            return; // Update rejected if the new quantity is negative
+            // Reject update if it would result in negative stock
+            return;
         }
 
         produkt.setBestand(aktuellerBestand + menge);
 
+        // Add a general update message for every stock change
+        String updateMessage = ConsoleColor.ANSI_YELLOW + "▪ Produkt " + produkt.getProduktKlasse() + "-" + produkt.getName() + " hat einen Bestand von " + produkt.getBestand() + ConsoleColor.ANSI_RESET;
+        history.addEntry(updateMessage);
+
+        // Check for low stock and add an alarm entry if necessary
         if (produkt.getBestand() < 10) {
-            String alarmEntry = "Alarm: Bestand für Produkt " + produkt.getName() + " unter Schwellenwert! (Bestand: " + produkt.getBestand() + ")";
-            System.out.println(alarmEntry);
+            String alarmEntry = "▪ Alarm: Bestand für Produkt " + produkt.getProduktKlasse() + "-" + produkt.getName() + " unter Schwellenwert! (Bestand: " + produkt.getBestand() + ")";
             history.addEntry(alarmEntry);
         }
     }
+
+    public synchronized boolean validateSale(Produkt produkt, int menge) {
+        return produkt.getBestand() + menge >= 0;
+    }
+
 }

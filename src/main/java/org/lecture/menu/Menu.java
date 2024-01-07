@@ -25,7 +25,7 @@ public class Menu {
                 🧮                                   🧮
                 🧮           Please choose:          🧮
                 🧮                                   🧮
-                🧮 (1) Delivery/Sales Simulation     🧮
+                🧮 (1) Start 60 seconds Simulation   🧮
                 🧮 (2) Show Storage History          🧮
                 🧮                                   🧮
                 🧮 (9) Exit                          🧮
