@@ -15,6 +15,11 @@ import java.util.*;
 
 /**
  * Manages the warehouse inventory and provides operations for updating stock.
+ * The WarehouseManagement class includes methods for initializing default products,
+ * obtaining random product entries, getting random products, and updating the stock.
+ *
+ * @author Unger Daniel, Leicht Andreas, Alnahhas Khaled
+ * @version 1.0
  */
 @Getter
 @Setter
@@ -22,6 +27,9 @@ public class WarehouseManagement implements LagerOperation {
     private Map<String, Produkt> bestand;
     private StorageHistory history;
 
+    /**
+     * Constructs a new WarehouseManagement with an empty inventory and a storage history.
+     */
     public WarehouseManagement() {
         this.bestand = new HashMap<>();
         this.history = new StorageHistory();
@@ -35,6 +43,12 @@ public class WarehouseManagement implements LagerOperation {
             System.out.println("Produkt "+ produkt.getProduktKlasse() + " " + produkt.getName() + " hat einen Bestand von " + produkt.getBestand());
         }
     }*/
+
+    /**
+     * Initializes the warehouse with default products.
+     * For each category (electronic, clothing, and food), one product is added to the inventory.
+     * The initial quantity is set to 1 for each product.
+     */
     public void initializeDefaultProducts() {
         for (ElektronikProdukt eProdukt : ElektronikProdukt.values()) {
             Elektronik elektronik = new Elektronik(eProdukt.getName(), 1);
@@ -52,6 +66,12 @@ public class WarehouseManagement implements LagerOperation {
         }
     }
 
+    /**
+     * Retrieves a random product entry from the inventory.
+     *
+     * @return A random product entry as a Map.Entry (name, product).
+     *         Returns null if the inventory is empty.
+     */
     public synchronized Map.Entry<String, Produkt> getRandomProductEntry() {
         if (bestand.isEmpty()) {
             //initializeDefaultProducts();
@@ -62,15 +82,18 @@ public class WarehouseManagement implements LagerOperation {
         if (!productList.isEmpty()) {
             Map.Entry<String, Produkt> randomProductEntry = productList.get(new Random().nextInt(productList.size()));
 
-            // Entry-Objekt, enthält den Produktname und das Produktobjekt
             return randomProductEntry;
         }
 
-        // Handle the case when the map is empty
         return null;
     }
 
 
+    /**
+     * Retrieves a random product from the inventory.
+     *
+     * @return A random product. Throws IllegalStateException if the inventory is empty.
+     */
     public Produkt getRandomProduct() {
         if (bestand.isEmpty()) {
             throw new IllegalStateException("Das Lager ist leer.");
@@ -81,13 +104,20 @@ public class WarehouseManagement implements LagerOperation {
         return bestand.get(randomKey);
     }
 
-
+    /**
+     * Updates the stock quantity of a given product.
+     * If the new quantity is less than 0, the update is rejected.
+     * If the updated quantity is less than 10, an alarm entry is added to the storage history.
+     *
+     * @param produkt The product to be updated.
+     * @param menge   The quantity to update (positive for addition, negative for subtraction).
+     */
     @Override
     public synchronized void aktualisiereBestand(Produkt produkt, int menge) {
         int aktuellerBestand = produkt.getBestand();
         if (aktuellerBestand + menge < 0) {
             //System.out.println("Verkauf abgelehnt: Nicht genug Bestand von " + produkt.getName());
-            return;
+            return; // Update rejected if the new quantity is negative
         }
 
         produkt.setBestand(aktuellerBestand + menge);
