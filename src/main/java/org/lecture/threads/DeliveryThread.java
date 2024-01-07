@@ -25,7 +25,7 @@ public class DeliveryThread extends Thread {
                 Map.Entry<String, Produkt> productEntry = ((WarehouseManagement) lagerOperation).getRandomProductEntry();
                 if (productEntry != null) {
                     Produkt produkt = productEntry.getValue();
-                    int menge = random.nextInt(20) +1;
+                    int menge = random.nextInt(30) +1;
 
                     String currentTime = LocalDateTime.now().format(formatter);
                     String message = currentTime + " ▪ Lieferung: " + menge + " Einheiten von Produkt " + produkt.getProduktKlasse() + "-" + produkt.getName() + " hinzugefügt";

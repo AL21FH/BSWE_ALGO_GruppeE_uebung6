@@ -26,7 +26,7 @@ public class SalesThread extends Thread {
                 Map.Entry<String, Produkt> productEntry = ((WarehouseManagement) lagerOperation).getRandomProductEntry();
                 if (productEntry != null) {
                     Produkt produkt = productEntry.getValue();
-                    int menge = -1 * random.nextInt(10) +1;
+                    int menge = -1 * random.nextInt(20) +1;
 
                     String currentTime = LocalDateTime.now().format(formatter);
                     String message = currentTime + " ▪ Verkauf: " + Math.abs(menge) + " Einheiten von Produkt " + produkt.getProduktKlasse() + "-" + produkt.getName() + " abgezogen";
@@ -40,7 +40,7 @@ public class SalesThread extends Thread {
                                 ConsoleColor.ANSI_YELLOW +
                                         "Es wurde versucht, " + Math.abs(menge) + " Einheiten von Produkt " + produkt.getProduktKlasse() + "-" + produkt.getName() + " mit Lagerstand " + produkt.getBestand() + " zu verkaufen. " +
                                         ConsoleColor.ANSI_RED +
-                                        "Verkauf von " + Math.abs(menge) + " Einheiten von Produkt " + produkt.getName() + " nicht möglich!" +
+                                        "Verkauf von " + Math.abs(menge) + " Einheiten von Produkt " + produkt.getName() + " nicht möglich, der Lagerstand ist zu gering!" +
                                         ConsoleColor.ANSI_RESET
                         );
 
