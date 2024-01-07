@@ -7,7 +7,12 @@ import org.lecture.storage.WarehouseManagement;
 import static org.junit.Assert.*;
 
 /**
- * Unit test for the DeliveryThread class.
+ * JUnit test class for the DeliveryThread class.
+ * It tests the behavior of the DeliveryThread class, specifically checking if the thread can be
+ * interrupted after running for a specified duration.
+ *
+ * @author Unger Daniel, Leicht Andreas, Alnahhas Khaled
+ * @version 1.0
  */
 public class DeliveryThreadTest {
 

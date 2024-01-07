@@ -10,12 +10,14 @@ import org.lecture.storage.WarehouseManagement;
 public class SalesThreadTest {
 
     /**
-     * Tests the behavior of the SalesThread class by starting the thread,
-     * letting it run for a specified duration, then interrupting and waiting for it to finish.
-     *
+     * JUnit test class for the SalesThread class.
      * <p>
+     * It tests the behavior of the SalesThread class by starting the thread,
+     * letting it run for a specified duration, then interrupting and waiting for it to finish.
      * This test checks the interruption mechanism and ensures the thread behaves as expected.
-     * </p>
+     *
+     * @author Unger Daniel, Leicht Andreas, Alnahhas Khaled
+     * @version 1.0
      */
     @Test
     public void testSalesThread() {

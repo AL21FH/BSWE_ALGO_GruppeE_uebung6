@@ -11,6 +11,9 @@ import org.lecture.threads.SalesThread;
  * The ThreadService class is responsible for managing and coordinating threads in the warehouse simulation.
  * It initializes the necessary components, such as the warehouse management system, menu, and threads for
  * product delivery and sales. It provides a user interface to interact with the simulation.
+ *
+ * @author Unger Daniel, Leicht Andreas, Alnahhas Khaled
+ * @version 1.0
  */
 public class ThreadService {
 
@@ -20,6 +23,13 @@ public class ThreadService {
     private final Thread deliveryThread = new DeliveryThread(warehouseManagement);
     private final Thread salesThread = new SalesThread(warehouseManagement);
 
+    /**
+     * The main method to run the warehouse thread simulation.
+     * <p>
+     * It continuously displays a menu to the user, allowing them to start the simulation, view storage history,
+     * or exit the program. The user's choice triggers different actions, such as initializing products, starting
+     * threads, and displaying history.
+     */
     public void run() {
         while (true) {
             int choice = menu.printMenu();

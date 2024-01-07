@@ -12,9 +12,12 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * The WarehouseManagementTest class contains JUnit tests for the WarehouseManagement class.
- * It ensures that the functionality of the WarehouseManagement class, such as obtaining
+ * JUnit test class for the WarehouseManagement class.
+ * It contains tests to ensure that the functionality of the WarehouseManagement class, such as obtaining
  * random product entries, getting random products, and updating the stock, works as expected.
+ *
+ * @author Unger Daniel, Leicht Andreas, Alnahhas Khaled
+ * @version 1.0
  */
 
 

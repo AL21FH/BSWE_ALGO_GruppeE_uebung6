@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * JUnit test class for the StorageHistory class.
+ *
+ *@author Unger Daniel, Leicht Andreas, Alnahhas Khaled
+ *@version 1.0
  */
 public class StorageHistoryTest {
 

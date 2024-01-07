@@ -2,7 +2,21 @@ package org.lecture.menu;
 
 import java.util.Scanner;
 
+/**
+ * The Menu class provides a simple text-based menu for managing storage.
+ *
+ * The menu includes options for simulating delivery and sales, displaying storage history, and exiting the program.
+ *
+ * @author Unger Daniel, Leicht Andreas, Alnahhas Khaled
+ * @version 1.0
+ */
 public class Menu {
+
+    /**
+     * Prints the main menu and captures the user's choice.
+     *
+     * @return The user's choice as an integer.
+     */
     public int printMenu(){
         String menu = """
                 🧮🧮🧮🧮🧮 Storage Managing 🧮🧮🧮🧮🧮
