@@ -1,5 +1,7 @@
 package org.lecture.menu;
 
+import org.lecture.helpers.ConsoleColor;
+
 import java.util.Scanner;
 
 /**
@@ -19,21 +21,22 @@ public class Menu {
      */
     public int printMenu() {
         String menu = """
-                🧮🧮🧮🧮🧮 Storage Managing 🧮🧮🧮🧮🧮
-                🧮                                   🧮
-                🧮          Delivery / Sales         🧮
-                🧮                                   🧮
-                🧮           Please choose:          🧮
-                🧮                                   🧮
-                🧮 (1) Start 60 seconds Simulation   🧮
-                🧮 (2) Show Storage History          🧮
-                🧮                                   🧮
-                🧮 (9) Exit                          🧮
-                🧮                                   🧮
-                 🧮🧮🧮🧮🧮🧮-HAVE FUN-🧮🧮🧮🧮🧮🧮🧮
+                
+                🛒💻💵🛒💻💵 Storage Managing 🛒💻💵🛒💻💵
+                💻                                         💻
+                💵             Delivery / Sales            💵
+                🛒                                         🛒
+                💻              Please choose:             💻
+                💵                                         💵
+                🛒 (1) 📥📤Start 60 seconds Simulation     🛒
+                💻 (2) 📦Show Storage History              💻
+                💵                                         💵
+                🛒 (9) Exit                                🛒
+                💻                                         💻
+                🛒💻💵🛒💻💵🛒  -HAVE FUN-  🛒💻💵🛒💻💵🛒              
                 """;
         System.out.println(menu);
-        System.out.println("Please choose an option: ");
+        System.out.println(ConsoleColor.ANSI_YELLOW + "Please choose an option: " + ConsoleColor.ANSI_RESET);
         int choiceService = chooseOption();
         return choiceService;
     }
